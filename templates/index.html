@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Great Number Game</title>
+</head>
+<body>
+    <div class='container'>
+        <h2>Welcome to the Great Number Game!</h2>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess!</p>
+        <!-- <p>{{val}}</p> -->
+        <h2>{{session['rand']}}</h2>
+
+        <form action="/getVals" method="POST">
+            <input name="guess">
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>
