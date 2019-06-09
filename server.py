@@ -5,6 +5,7 @@ app.secret_key = 'keep it secret, keep it safe'
 
 @app.route('/')
 def index():
+    session['attempts'] = 0
     session['block-visibility'] = 'none'
     if not session['randNumber'] in session:
         session['randNumber'] = random.randint(1,100)
@@ -36,6 +37,10 @@ def playerWin():
 
 @app.route('/getVals', methods=["POST"])
 def getVals():
+    if not 'attempts' in session:
+        session['attempts'] = 0
+    else:
+        session['attempts'] += 1
     session['block-visibility'] = 'block'
     print("Our guess: " + str(request.form['guess']))
     print("Number to guess: " + str(session['randNumber']))
