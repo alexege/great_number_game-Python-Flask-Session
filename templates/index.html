@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Great Number Game</title>
+    <style>
+        .block {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            background-color: {{session['block-color']}}
+        }
+
+        .block-visibility{
+            display: {{session['block-visibility']}}
+        }
+    </style>
 </head>
 <body>
     <div class='container'>
@@ -13,7 +25,9 @@
         <p>Take a guess!</p>
         <!-- <p>{{val}}</p> -->
         <h2>{{session['rand']}}</h2>
-
+        <div class="block block-visibility">
+            <h2>{{session['guess-message']}}</h2>
+        </div>
         <form action="/getVals" method="POST">
             <input name="guess">
             <button>Submit</button>
